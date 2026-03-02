@@ -1,9 +1,10 @@
 import pygame
 
 class Ball:
-    def __init__(self, x, y, radius, color, velo):
+    def __init__(self, x, y, mass, radius, color, velo):
         self.x = x
         self.y = y
+        self.mass = mass
         self.radius = radius
         self.color = color
         self.velo = velo
