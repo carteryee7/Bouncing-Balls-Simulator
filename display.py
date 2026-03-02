@@ -8,9 +8,15 @@ clock = pygame.time.Clock()
 
 vel = [10, 0.01]
 vel2 = [4, 0.01]
+vel3 = [-6, 0.01]
 gravity = 0.3
-b = Ball(400, 100, 8, 40, (255, 255, 0), vel)
-b2 = Ball(200, 20, 20, 20, (255, 0, 0), vel2)
+balls: list[Ball] = []
+b = Ball(400, 100, 8, 80, (255, 255, 0), vel)
+b2 = Ball(200, 20, 400, 20, (255, 0, 0), vel2)
+b3 = Ball(600, 40, 10, 30, (255, 0, 255), vel3)
+balls.append(b)
+balls.append(b2)
+balls.append(b3)
 
 def check_collision(ball: Ball):
     # floor collision
@@ -57,8 +63,9 @@ while running:
             if event.key == pygame.K_SPACE:
                 b.y = random.randint(50, 200)
                 b2.y = random.randint(50, 200)
+                b3.y = random.randint(50, 200)
                 if random.choice([True, False]):
-                    b.velo[0] = random.randint(7, 10)
+                    b.velo[0] = random.randint(70, 100)
                 else:
                     b.velo[0] = random.randint(-10, -7)
 
@@ -66,26 +73,37 @@ while running:
                     b2.velo[0] = random.randint(7, 10)
                 else:
                     b2.velo[0] = random.randint(-10, -7)
+                
+                if random.choice([True, False]):
+                    b3.velo[0] = random.randint(70, 100)
+                else:
+                    b3.velo[0] = random.randint(-10, -7)
+            #if event.key == pygame.K_w:
+
     
     screen.fill((0, 0, 0))  # clear screen
     # draw things here
-    
-    b.move()
-    b2.move()
 
-    check_collision(b)
-    check_collision(b2)
+    for ball in balls:
+        ball.move()
+        check_collision(ball)
 
     check_ball_collision(b, b2)
+    check_ball_collision(b, b3)
+    check_ball_collision(b2, b3)
 
     if b.velo != 0:
         b.add_to_velo(0, gravity)
 
     if b2.velo != 0:
         b2.add_to_velo(0, gravity)
+    
+    if b3.velo != 0:
+        b3.add_to_velo(0, gravity)
 
     b.draw(screen)
     b2.draw(screen)
+    b3.draw(screen)
     pygame.display.flip()
     clock.tick(60)  # 60 FPS
 
