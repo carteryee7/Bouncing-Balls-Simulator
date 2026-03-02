@@ -5,7 +5,7 @@ pygame.init()
 screen = pygame.display.set_mode((800, 600))
 clock = pygame.time.Clock()
 
-vel = [1, 0]
+vel = [4, 0]
 gravity = 0.3
 ball = Ball(400, 20, 20, (255, 255, 0), vel)
 stopped = False
@@ -37,12 +37,12 @@ while running:
     # wall collision
     if ball.x + ball.radius >= 800:
         ball.x = 800 - ball.radius
-        vel[0] *= -1
+        vel[0] *= -0.8
     
     # wall collision
     if ball.x - ball.radius <= 0:
         ball.x = ball.radius
-        vel[0] *= -1
+        vel[0] *= -0.8
 
     if not stopped:
         vel[1] += gravity
