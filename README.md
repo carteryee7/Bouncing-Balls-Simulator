@@ -4,7 +4,7 @@
 
 This screen recording demonstrates the functionality of the Bouncing Balls Simulator.
 
-demo.png
+[](demo.png)
 
 [Watch the Bouncing Balls Simulation Video](Balls.mp4)
 
