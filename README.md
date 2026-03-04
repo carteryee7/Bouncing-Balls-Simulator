@@ -4,9 +4,7 @@
 
 This screen recording demonstrates the functionality of the Bouncing Balls Simulator.
 
-![Simulation Demo](demo.png)
-
-[Watch the Bouncing Balls Simulation Video](Balls.mp4)
+https://github.com/user-attachments/assets/22c82c23-e729-417e-b714-1e25431bcb81
 
 ## Description
 
