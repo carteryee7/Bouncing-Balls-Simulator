@@ -8,7 +8,7 @@ https://github.com/user-attachments/assets/22c82c23-e729-417e-b714-1e25431bcb81
 
 ## Description
 
-The Bouncing Balls Simulator is a simple graphical application that simulates the behavior of bouncing balls within a defined area. The application allows users to observe how balls interact with each other and the boundaries of the simulation space.
+The Bouncing Balls Simulator is a simple graphical application that simulates the behavior of bouncing balls within a defined area. The application allows users to observe how balls interact with each other and the boundaries of the simulation space through the principle of conservation of momentum.
 
 ## Features
 - Multiple balls with adjustable properties (size, color, speed)
