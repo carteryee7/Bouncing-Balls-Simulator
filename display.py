@@ -11,7 +11,7 @@ vel2 = [4, 0.01]
 vel3 = [-6, 0.01]
 gravity = 0.3
 balls: list[Ball] = []
-b = Ball(400, 100, 8, 80, (255, 255, 0), vel)
+b = Ball(400, 100, 8, 40, (255, 255, 0), vel)
 b2 = Ball(200, 20, 400, 20, (255, 0, 0), vel2)
 b3 = Ball(600, 40, 10, 30, (255, 0, 255), vel3)
 balls.append(b)
@@ -23,7 +23,7 @@ def check_collision(ball: Ball):
     if ball.y + ball.radius > 600:
         ball.y = 600 - ball.radius
         ball.scale_velo(1, -0.8)
-        if abs(ball.get_velo()[0]) < 0.5:
+        if abs(ball.get_velo()[1]) < 0.5:
             ball.set_velo(ball.get_velo()[0], 0)
     
     # ceiling collision
@@ -60,7 +60,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_SPACE:
+            if event.key == pygame.K_r:
                 b.y = random.randint(50, 200)
                 b2.y = random.randint(50, 200)
                 b3.y = random.randint(50, 200)
@@ -78,7 +78,9 @@ while running:
                     b3.velo[0] = random.randint(70, 100)
                 else:
                     b3.velo[0] = random.randint(-10, -7)
-            #if event.key == pygame.K_w:
+            if event.key == pygame.K_w:
+                if abs(b.get_velo()[1]) < 0.5:
+                    b.velo[1] += -10
 
     
     screen.fill((0, 0, 0))  # clear screen
